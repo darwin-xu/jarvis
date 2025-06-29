@@ -64,4 +64,28 @@ Open `http://localhost:3000` in your browser and connect to a remote host using 
 - Contextual understanding of file trees or project structure
 - Offline LLM integration
 
+## 🤖 AI Command Runner
+
+`aiAssistant.js` provides a minimal framework for turning natural language
+prompts into shell commands. It uses a pluggable language model adapter so you
+can integrate OpenAI, Grok, Claude, Gemini, LLaMA or any local model.
+
+Run the helper script:
+
+```bash
+node runWithAI.js
+```
+
+This will ask for a goal, generate a command, execute it and keep iterating until
+the command succeeds or the attempts are exhausted. `EchoLLM` is included as a
+placeholder that simply echoes your input. Replace it with your own adapter that
+implements the `LLMAdapter.complete()` method.
+
+### Using in the Web Terminal
+
+When connected via the browser, an **AI Prompt** field appears below the
+terminal. Enter a natural language request and the server will generate and
+execute a shell command on the active SSH session. The output is shown in the
+terminal with a green prefix when successful or red if an error occurs.
+
 Built with ♥ for developers who want smarter tools.
